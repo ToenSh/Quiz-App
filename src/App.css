@@ -22,6 +22,7 @@ body {
 .quiz-container {
   padding-top: 5rem;
   position: relative;
+  min-width: 21rem;
 }
 
 .quiz-header {
@@ -36,12 +37,27 @@ body {
   right: 0;
 }
 
-.quiz-card {
+.quiz-card,
+.results-card {
   background: #ffffff;
   border-radius: 24px;
-  padding: 4.25rem 2rem 2rem 2rem;
   display: flex;
   flex-direction: column;
+}
+.quiz-card {
+  padding: 4.25rem 2rem 2rem 2rem;
+}
+.results-card {
+  align-items: center;
+  padding: 4.25rem 4.5rem 2rem 4.5rem;
+  margin-top: 5.25rem;
+}
+
+.country-flag {
+  filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.1));
+  border-radius: 4px;
+  max-width: 5rem;
+  margin-bottom: 1.75rem;
 }
 
 .question {
@@ -59,29 +75,19 @@ body {
 }
 
 .answer {
-  background-color: white;
   min-width: 100%;
-  font-family: inherit;
+  background-color: white;
+  cursor: pointer;
   color: rgba(96, 102, 208, 0.8);
-  font-size: clamp(0.75rem, 4vw, 1.1rem);
   font-weight: 500;
+  font-size: clamp(0.75rem, 4vw, 1.1rem);
+  font-family: inherit;
   border: 2px solid rgba(96, 102, 208, 0.7);
   border-radius: 12px;
   padding: 0.8rem 1.15rem;
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  cursor: pointer;
 }
-
-.answer:focus {
-  background: #f9a826;
-  color: white;
-  border-color: #f9a826;
-}
-
-li > span {
-  font-size: 1.25rem;
+.answer-text {
+  margin-left: 1.5rem;
 }
 
 .next-question {
@@ -94,6 +100,43 @@ li > span {
   font-weight: 700;
   font-family: inherit;
   font-size: clamp(0.75rem, 3.5vw, 1rem);
-  margin: 1.5rem 0 auto auto;
+  margin: 2rem 0 auto auto;
   cursor: pointer;
+}
+
+.results-header {
+  font-size: clamp(2rem, 8vw, 3rem);
+  color: #1d355d;
+  font-weight: 700;
+  margin-top: 4rem;
+}
+
+.results-card > p {
+  color: #1d355d;
+  font-size: clamp(0.75rem, 4vw, 1.1rem);
+}
+
+.correct-answers-amount {
+  color: #6fcf97;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.try-again {
+  background: none;
+  border: 2px solid #1d355d;
+  border-radius: 12px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1d355d;
+  padding: 0.75rem 3rem;
+  cursor: pointer;
+  margin-top: 4.25rem;
+}
+
+@media (min-width: 450px) {
+  .quiz-container {
+    min-width: 28rem;
+  }
 }
